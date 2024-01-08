@@ -1,15 +1,33 @@
 :root {
+    /* Light Mode Colors */
     --background-color: hsla(0, 100%, 100%, 1);
+    --text-color: hsla(0, 0%, 0%, 0.8);
 }
 
+/* Dark Mode Colors */
 [data-theme="dark"] {
-    --background-color: hsla(0, 0%, 0%, 0.8);
+    --background-color: hsla(0, 0%, 0%, 0.9);
+    --text-color: hsla(0, 100%, 100%, 1);
 }
 
+/* Reset */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Main Styles */
 body {
     background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: background 400ms ease-in-out;
 }
 
+/* Toggle Track Styles */
 input[type="checkbox"].toggle {
     --toggle-padding: 3px;
     -webkit-appearance: none;
@@ -22,8 +40,10 @@ input[type="checkbox"].toggle {
     padding: var(--toggle-padding);
     cursor: pointer;
     transition: background 250ms ease-in-out;
+    border: 2px solid hsl(0, 0%, 85%);
 }
 
+/* Toggle Thumb Styles */
 input[type="checkbox"].toggle::before {
     content: '';
     height: calc(100% - 2 * var(--toggle-padding));
@@ -32,17 +52,18 @@ input[type="checkbox"].toggle::before {
     box-shadow: 0 0 3px 0 #F8F03E;
     position: absolute;
     border-radius: 50%;
-    transition: all 250ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    transform-origin: center;
 }
 
 input[type="checkbox"].toggle:checked::before {
-    transform: translateX(38px);
+    transform: translateX(38px) rotate(360deg);
     background: linear-gradient(0.33turn, hsla(58, 36%, 80%, 1), hsla(0, 0%, 84%, 0));
     box-shadow: 0 0 3px 0 #ECEBDE;
 }
 
 input[type="checkbox"].toggle:checked {
-    background: #1A1A1A;
+    background: #000000;
 }
 
 input[type="checkbox"].toggle::after {
@@ -57,7 +78,7 @@ input[type="checkbox"].toggle:checked::after {
     content: url("./stars.svg");
     position: absolute;
     left: 10px;
-    top: 4px;
+    top: 2px;
 }
 
 /* Ensure toggle is focusable for keyboard users */
