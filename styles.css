@@ -1,0 +1,66 @@
+:root {
+    --background-color: hsla(0, 100%, 100%, 1);
+}
+
+[data-theme="dark"] {
+    --background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+input[type="checkbox"].toggle {
+    --toggle-padding: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 74px;
+    height: 34px;
+    background: linear-gradient(0.25turn, hsla(202, 100%, 80%, 1), hsla(202, 51%, 79%, 1));
+    border-radius: 20px;
+    position: relative;
+    padding: var(--toggle-padding);
+    cursor: pointer;
+    transition: background 250ms ease-in-out;
+}
+
+input[type="checkbox"].toggle::before {
+    content: '';
+    height: calc(100% - 2 * var(--toggle-padding));
+    aspect-ratio: 1;
+    background-color: #F8F03E;
+    box-shadow: 0 0 3px 0 #F8F03E;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 250ms ease-in-out;
+}
+
+input[type="checkbox"].toggle:checked::before {
+    transform: translateX(38px);
+    background: linear-gradient(0.33turn, hsla(58, 36%, 80%, 1), hsla(0, 0%, 84%, 0));
+    box-shadow: 0 0 3px 0 #ECEBDE;
+}
+
+input[type="checkbox"].toggle:checked {
+    background: #1A1A1A;
+}
+
+input[type="checkbox"].toggle::after {
+    content: url("./clouds.svg");
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: top 500ms ease;
+}
+
+input[type="checkbox"].toggle:checked::after {
+    content: url("./stars.svg");
+    position: absolute;
+    left: 10px;
+    top: 4px;
+}
+
+/* Ensure toggle is focusable for keyboard users */
+input[type="checkbox"].toggle:focus-visible {
+    outline: 2px solid hsl(150, 80%, 75%);
+}
