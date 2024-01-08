@@ -40,7 +40,7 @@ input[type="checkbox"].toggle {
     padding: var(--toggle-padding);
     cursor: pointer;
     transition: background 250ms ease-in-out;
-    border: 2px solid hsl(0, 0%, 85%);
+    border: 2px solid hsl(0, 0%, 30%);
 }
 
 /* Toggle Thumb Styles */
