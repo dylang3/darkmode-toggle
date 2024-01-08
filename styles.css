@@ -64,6 +64,7 @@ input[type="checkbox"].toggle:checked::before {
 
 input[type="checkbox"].toggle:checked {
     background: #000000;
+    border: 2px solid hsl(0, 0%, 75%);
 }
 
 input[type="checkbox"].toggle::after {
